@@ -1,4 +1,176 @@
 {% extends 'base.html' %} 
+{% load static %}
 {% block content %}
-<h1>Home</h1>
+ <!-- Showroom -->
+ <section id="showroom">
+    <div class="container text-center">
+      <div class="home-search p-5">
+        <div class="overlay p-5">
+          <h1 class="display-4 mb-4">Find Your New Home</h1>
+          <p class="lead">Let's find your new home as we know a home is so much more than a house!</p>
+          <div class="search">
+            <form action="{% url 'index' %}">
+              <!-- Search Form -->
+              <div class="form-row">
+                <span class="col-md-3"></span>
+                <div class="col-md-6 mb-3 form-group has-search">
+                  <span class="fa fa-search form-control-feedback"></span>
+                  <label class="sr-only">Keywords</label>
+                  <input type="text" name="keywords" class="form-control" placeholder="e.g. Cambridge, CB4">
+                </div>
+              </div>
+  
+              <div class="form-row">
+                <span class="col-md-2"></span>
+                <div class="col-md-4 mb-3">
+                  <label class="sr-only">Bedrooms</label>
+                  <select name="bedrooms" class="form-control">
+                    <option selected="true" disabled="disabled">Bedrooms (All)</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                  </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <select class="form-control" id="type">
+                    <option selected="true" disabled="disabled">Max Price (Any)</option>
+                    <option value="100000">£100,000</option>
+                    <option value="200000">£200,000</option>
+                    <option value="300000">£300,000</option>
+                    <option value="400000">£400,000</option>
+                    <option value="500000">£500,000</option>
+                    <option value="600000">£600,000</option>
+                    <option value="700000">£700,000</option>
+                    <option value="800000">£800,000</option>
+                    <option value="900000">£900,000</option>
+                    <option value="1000000">£1M</option>
+                    <option value="2000000">£2M+</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-success btn-block mt-4" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Listings -->
+  <section id="listings" class="py-5">
+    <div class="container">
+      <h3 class="text-center mb-3">Latest Listings</h3>
+      <div class="row">
+        <!-- Home 1 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static '/img/homes/home-1.jpg' %}" alt="">
+            <div class="card-img-overlay">
+              <h2>
+                <span class="badge badge-primary text-white">£425,000</span>
+              </h2>
+            </div>
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Chieftain Way</h4>
+                <p>
+                  <i class="fas fa-map-marker"></i> Cambridge CB4</p>
+              </div>
+              <hr>
+              <div class="row py-2">
+                <div class="col-6">
+                  <i class="fas fa-couch"></i> Living rooms: 1</div>
+                <div class="col-6">
+                  <i class="fas fa-car"></i> Garage: 1</div>
+              </div>
+              <div class="row py-2">
+                <div class="col-6">
+                  <i class="fas fa-bed"></i> Bedrooms: 3</div>
+                <div class="col-6">
+                  <i class="fas fa-bath"></i> Bathrooms: 1</div>
+              </div>
+              <br>
+              <a href="{% url 'index' %}" class="btn btn-primary btn-block">More Info</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Home 2 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static '/img/homes/home-2.jpg' %}" alt="">
+            <div class="card-img-overlay">
+              <h2>
+                <span class="badge badge-primary text-white">£379,000</span>
+              </h2>
+            </div>
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Marley Close</h4>
+                <p>
+                  <i class="fas fa-map-marker"></i> Botley, Oxford OX2</p>
+              </div>
+              <hr>
+              <div class="row py-2">
+                <div class="col-6">
+                  <i class="fas fa-couch"></i> Living rooms: 1</div>
+                <div class="col-6">
+                  <i class="fas fa-car"></i> Garage: 0</div>
+              </div>
+              <div class="row py-2">
+                <div class="col-6">
+                  <i class="fas fa-bed"></i> Bedrooms: 3</div>
+                <div class="col-6">
+                  <i class="fas fa-bath"></i> Bathrooms: 1</div>
+              </div>
+              <br>
+              <a href="{% url 'index' %}" class="btn btn-primary btn-block">More Info</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Home 3 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{% static '/img/homes/home-1.jpg' %}" alt="">
+            <div class="card-img-overlay">
+              <h2>
+                <span class="badge badge-primary text-white">£1,950,000</span>
+              </h2>
+            </div>
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Motcomb Street</h4>
+                <p>
+                  <i class="fas fa-map-marker"></i> London SW1X</p>
+              </div>
+              <hr>
+              <div class="row py-2">
+                <div class="col-6">
+                  <i class="fas fa-couch"></i> Living rooms: 1</div>
+                <div class="col-6">
+                  <i class="fas fa-car"></i> Garage: 0</div>
+              </div>
+              <div class="row py-2">
+                <div class="col-6">
+                  <i class="fas fa-bed"></i> Bedrooms: 2</div>
+                <div class="col-6">
+                  <i class="fas fa-bath"></i> Bathrooms: 2</div>
+              </div>
+              <br>
+              <a href="{% url 'index' %}" class="btn btn-primary btn-block">More Info</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 {% endblock %}

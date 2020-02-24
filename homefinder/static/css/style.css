@@ -10,3 +10,97 @@ img {
 .navbar {
   opacity: 1;
   text-transform: uppercase; }
+
+#showroom {
+  background: url(../img/cover.jpg) no-repeat top center fixed;
+  background-size: cover;
+  position: relative;
+  min-height: 650px;
+  color: #fff;
+  padding-top: 6rem; }
+  #showroom .home-search {
+    min-height: 400px;
+    position: relative;
+    border-radius: 5px; }
+  #showroom .overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 400px;
+    width: 100%;
+    background: rgba(51, 51, 51, 0.8); }
+
+  #showcase-inner {
+    background: url(../img/houses.jpg) no-repeat top center fixed;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px; }
+    #showcase-inner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-height: 100%;
+      width: 100%;
+      background: rgba(32, 134, 107, 0.8); }
+    #showcase-inner.showcase-search {
+      min-height: 270px; }
+
+#work {
+  padding: 6rem 0; }
+
+.listing-preview a {
+  position: relative; }
+
+@media (max-width: 991px) {
+  #showcase {
+    padding-top: 4rem; }
+    #showcase h1 {
+      font-size: 40px; }
+  .hide-md-down {
+    display: none; } }
+
+@media (max-width: 768px) {
+  #showcase {
+    padding-top: 3rem; }
+    #showcase h1 {
+      font-size: 40px; }
+    #showcase p {
+      display: none; }
+  #top-bar {
+    text-align: center; }
+    #top-bar .social {
+      text-align: center !important; } }
+
+@media (max-width: 576px) {
+  #showroom h1 {
+    font-size: 30px; }
+  #showcase-inner h1 {
+    font-size: 40px; } }
+
+  /* Styles for wrapping the search box */
+
+.main {
+  width: 50%;
+  margin: 50px auto;
+}
+
+/* Bootstrap text input with search icon */
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
