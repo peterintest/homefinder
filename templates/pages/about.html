@@ -1,4 +1,68 @@
 {% extends 'base.html' %} 
+{% load static %}
 {% block content %}
-<h1>About</h1>
+  <section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">About Home Finder</h1>
+          <p class="lead">We know a home is so much more than a house!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item active"> About</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>We're a family business</h2>
+          <p class="lead">We're passionate about what we do and have market knowledge and experience</p>
+          <img src="{% static '/img/open.jpg' %}" alt="">
+          <p class="mt-4">We are a family-run online estate agency for properties in the UK. We have a wealth of experience and market knowledge 
+            to assist you with buying a new home or selling your property at competitive rates. Our team are customer focused and 
+            want to ensure you have a 
+            stress free experience. Please get in touch and we will be happy to answer any queries.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Contact Us</h5>
+              <h3 class="text-primary">020 7946 0391</h6>
+              <p class="card-text">
+                <h5 class="text-primary">Opening hours</h6>
+                Monday - Friday: 9am - 6pm 
+                <br/>
+                Saturday: 9am - 1.30pm
+                <br/>
+                Sunday: Closed
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="bg-dark text-white text-center">
+    <h2 class="display-4">We Can Help</h2>
+    <h4>We provide property evaluation, independent mortgage brokerage and removal services</h4>
+    <hr>
+    <a href="{% url 'index' %}" class="btn btn-secondary text-white btn-lg">View Our Properties</a>
+  </section>
+
 {% endblock %}
