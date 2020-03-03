@@ -9,7 +9,7 @@
           <h1 class="display-4 mb-4">Find Your New Home</h1>
           <p class="lead">Let's find your new home as we know a home is so much more than a house!</p>
           <div class="search">
-            <form action="{% url 'index' %}">
+            <form action="{% url 'search' %}">
               <!-- Search Form -->
               <div class="form-row">
                 <span class="col-md-3"></span>
@@ -19,39 +19,23 @@
                   <input type="text" name="keywords" class="form-control" placeholder="e.g. Cambridge, CB4">
                 </div>
               </div>
-  
               <div class="form-row">
                 <span class="col-md-2"></span>
                 <div class="col-md-4 mb-3">
                   <label class="sr-only">Bedrooms</label>
                   <select name="bedrooms" class="form-control">
                     <option selected="true" disabled="disabled">Bedrooms (All)</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
+                    {% for key, value in bedroom_options.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
                   </select>
                 </div>
                 <div class="col-md-4 mb-3">
                   <select class="form-control" id="type">
                     <option selected="true" disabled="disabled">Max Price (Any)</option>
-                    <option value="100000">£100,000</option>
-                    <option value="200000">£200,000</option>
-                    <option value="300000">£300,000</option>
-                    <option value="400000">£400,000</option>
-                    <option value="500000">£500,000</option>
-                    <option value="600000">£600,000</option>
-                    <option value="700000">£700,000</option>
-                    <option value="800000">£800,000</option>
-                    <option value="900000">£900,000</option>
-                    <option value="1000000">£1M</option>
-                    <option value="2000000">£2M+</option>
+                    {% for key, value in price_options.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div>
@@ -62,7 +46,6 @@
       </div>
     </div>
   </section>
-
   <!-- Listings -->
   <section id="listings" class="py-5">
     <div class="container">
