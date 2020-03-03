@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+
+{% load humanize %}
+
 {% load static %}
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
@@ -31,210 +34,46 @@
 <section id="listings" class="py-4">
     <div class="container">
         <div class="row">
-
-            <!-- Home 1 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card listing-preview">
-                    <img class="card-img-top" src="{% static '/img/homes/home-1.jpg' %}" alt="">
-                    <div class="card-img-overlay">
-                        <h2>
-                            <span class="badge badge-primary text-white">£425,000</span>
-                        </h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="listing-heading text-center">
-                            <h4 class="text-primary">Chieftain Way</h4>
-                            <p>
-                                <i class="fas fa-map-marker"></i> Cambridge CB4</p>
+            {% if listings %}
+                {% for listing in listings %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card listing-preview">
+                        <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
+                        <div class="card-img-overlay">
+                            <h2>
+                                <span class="badge badge-primary text-white">£{{ listing.price | intcomma }}</span>
+                            </h2>
                         </div>
-                        <hr>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-couch"></i> Living rooms: 1</div>
-                            <div class="col-6">
-                                <i class="fas fa-car"></i> Garage: 1</div>
+                        <div class="card-body">
+                            <div class="listing-heading text-center">
+                                <h4 class="text-primary">{{ listing.title }}</h4>
+                                <p>
+                                    <i class="fas fa-map-marker"></i> {{ listing.city }}, {{ listing.county }}, {{ listing.postcode }}</p>
+                            </div>
+                            <hr>
+                            <div class="row py-2">
+                                <div class="col-6">
+                                    <i class="fas fa-couch"></i> Living rooms: {{ listing.livingrooms }}</div>
+                                <div class="col-6">
+                                    <i class="fas fa-car"></i> Garage: {{ listing.garage }}</div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-6">
+                                    <i class="fas fa-bed"></i> Bedrooms: {{ listing.bedrooms }}</div>
+                                <div class="col-6">
+                                    <i class="fas fa-bath"></i> Bathrooms: {{ listing.bathrooms }}</div>
+                            </div>
+                            <br>
+                            <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
                         </div>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-bed"></i> Bedrooms: 3</div>
-                            <div class="col-6">
-                                <i class="fas fa-bath"></i> Bathrooms: 1</div>
-                        </div>
-                        <br>
-                        <a href="{% url 'index' %}" class="btn btn-primary btn-block">More Info</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Home 2 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card listing-preview">
-                    <img class="card-img-top" src="{% static '/img/homes/home-2.jpg' %}" alt="">
-                    <div class="card-img-overlay">
-                        <h2>
-                            <span class="badge badge-primary text-white">£379,000</span>
-                        </h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="listing-heading text-center">
-                            <h4 class="text-primary">Marley Close</h4>
-                            <p>
-                                <i class="fas fa-map-marker"></i> Botley, Oxford OX2</p>
-                        </div>
-                        <hr>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-couch"></i> Living rooms: 1</div>
-                            <div class="col-6">
-                                <i class="fas fa-car"></i> Garage: 0</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-bed"></i> Bedrooms: 3</div>
-                            <div class="col-6">
-                                <i class="fas fa-bath"></i> Bathrooms: 1</div>
-                        </div>
-                        <br>
-                        <a href="{% url 'index' %}" class="btn btn-primary btn-block">More Info</a>
                     </div>
                 </div>
-            </div>
-
-            <!-- Home 3 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card listing-preview">
-                    <img class="card-img-top" src="{% static '/img/homes/home-3.jpg' %}" alt="">
-                    <div class="card-img-overlay">
-                        <h2>
-                            <span class="badge badge-primary text-white">£1,950,000</span>
-                        </h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="listing-heading text-center">
-                            <h4 class="text-primary">Motcomb Street</h4>
-                            <p>
-                                <i class="fas fa-map-marker"></i> London SW1X</p>
-                        </div>
-                        <hr>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-couch"></i> Living rooms: 1</div>
-                            <div class="col-6">
-                                <i class="fas fa-car"></i> Garage: 0</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-bed"></i> Bedrooms: 2</div>
-                            <div class="col-6">
-                                <i class="fas fa-bath"></i> Bathrooms: 2</div>
-                        </div>
-                        <br>
-                        <a href="{% url 'index' %}" class="btn btn-primary btn-block">More Info</a>
-                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-md-12">
+                    <p>No listings found</p>
                 </div>
-            </div>
-
-            <!-- Home 4 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card listing-preview">
-                    <img class="card-img-top" src="{% static '/img/homes/home-4.jpg' %}" alt="">
-                    <div class="card-img-overlay">
-                        <h2>
-                            <span class="badge badge-primary text-white">£300,000</span>
-                        </h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="listing-heading text-center">
-                            <h4 class="text-primary">Drayton Road</h4>
-                            <p>
-                                <i class="fas fa-map-marker"></i> Cambridge CB4</p>
-                        </div>
-                        <hr>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-couch"></i> Living rooms: 1</div>
-                            <div class="col-6">
-                                <i class="fas fa-car"></i> Garage: 0</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-bed"></i> Bedrooms: 3</div>
-                            <div class="col-6">
-                                <i class="fas fa-bath"></i> Bathrooms: 1</div>
-                        </div>
-                        <br>
-                        <a href="{% url 'index' %}" class="btn btn-primary btn-block">More Info</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Home 5 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card listing-preview">
-                    <img class="card-img-top" src="{% static '/img/homes/home-5.jpg' %}" alt="">
-                    <div class="card-img-overlay">
-                        <h2>
-                            <span class="badge badge-primary text-white">£1,395,000</span>
-                        </h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="listing-heading text-center">
-                            <h4 class="text-primary">Carlisle Avenue</h4>
-                            <p>
-                                <i class="fas fa-map-marker"></i> St. Albans AL3</p>
-                        </div>
-                        <hr>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-couch"></i> Living rooms: 2</div>
-                            <div class="col-6">
-                                <i class="fas fa-car"></i> Garage: 0</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-bed"></i> Bedrooms: 4</div>
-                            <div class="col-6">
-                                <i class="fas fa-bath"></i> Bathrooms: 4</div>
-                        </div>
-                        <br>
-                        <a href="{% url 'index' %}" class="btn btn-primary btn-block">More Info</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Home 6 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card listing-preview">
-                    <img class="card-img-top" src="{% static '/img/homes/home-6.jpg' %}" alt="">
-                    <div class="card-img-overlay">
-                        <h2>
-                            <span class="badge badge-primary text-white">£214,950</span>
-                        </h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="listing-heading text-center">
-                            <h4 class="text-primary">Brackley Road</h4>
-                            <p>
-                                <i class="fas fa-map-marker"></i> Manchester M30</p>
-                        </div>
-                        <hr>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-couch"></i> Living rooms: 1</div>
-                            <div class="col-6">
-                                <i class="fas fa-car"></i> Garage: 0</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="col-6">
-                                <i class="fas fa-bed"></i> Bedrooms: 2</div>
-                            <div class="col-6">
-                                <i class="fas fa-bath"></i> Bathrooms: 2</div>
-                        </div>
-                        <br>
-                        <a href="{% url 'index' %}" class="btn btn-primary btn-block">More Info</a>
-                    </div>
-                </div>
-            </div>
+            {% endif %}
         </div>
 
         <div class="row">
