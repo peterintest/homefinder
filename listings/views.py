@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .search_options import bedroom_options, price_options
 
 from .models import Listing
 
@@ -20,4 +21,34 @@ def listing(request, listing_id):
     return render(request, 'listings/listing.html')
 
 def search(request):
-    return render(request, 'listings/search.html')
+    queryset_list = Listing.objects.all()
+
+    #Keywords
+    if 'keywords' in request.GET:
+        keywords = request.GET['keywords']
+        if keywords:
+            queryset_list = queryset_list.filter(city__icontains=keywords) \
+            | queryset_list.filter(postcode__icontains=keywords) \
+            | queryset_list.filter(county__icontains=keywords) \
+            | queryset_list.filter(title__icontains=keywords) \
+
+    #Filter by number of bedrooms
+    if 'bedrooms' in request.GET:
+        bedrooms = request.GET['bedrooms']
+        if bedrooms:
+            queryset_list = queryset_list.filter(bedrooms__icontains=bedrooms)
+
+    #Filter up to max price
+    if 'price' in request.GET:
+        price = request.GET['price']
+        if price:
+            queryset_list = queryset_list.filter(price__lte=price)
+
+    context = {
+        'bedroom_options': bedroom_options,
+        'price_options': price_options,
+        'listings': queryset_list,
+        'values': request.GET
+    }
+
+    return render(request, 'listings/search.html', context)
