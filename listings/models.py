@@ -1,6 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 from datetime import datetime
 from staff.models import Staff
+
 
 class Listing(models.Model):
     staff = models.ForeignKey(Staff, on_delete=models.DO_NOTHING)
@@ -27,3 +29,10 @@ class Listing(models.Model):
 
     def __str__(self):
         return self.title
+
+class Search(models.Model):
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    keywords = models.CharField(max_length=200, blank=True)
+    bedrooms = models.IntegerField(blank=True)
+    max_price = models.IntegerField(blank=True)
+    search_date = models.DateTimeField(default=datetime.now, blank=True)
