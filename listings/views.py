@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .search_options import bedroom_options, price_options
 
-from .models import Listing
+from .models import Listing, Search
 
 def index(request):
     listings = Listing.objects.all().filter(is_published=True)
@@ -29,6 +29,7 @@ def search(request):
     queryset_list = Listing.objects.all()
 
     #Keywords
+    keywords = ''
     if 'keywords' in request.GET:
         keywords = request.GET['keywords']
         if keywords:
@@ -38,16 +39,28 @@ def search(request):
             | queryset_list.filter(title__icontains=keywords) \
 
     #Filter by number of bedrooms
+    bedrooms = 0
     if 'bedrooms' in request.GET:
         bedrooms = request.GET['bedrooms']
         if bedrooms:
             queryset_list = queryset_list.filter(bedrooms__icontains=bedrooms)
 
     #Filter up to max price
+    price = 0
     if 'price' in request.GET:
         price = request.GET['price']
         if price:
             queryset_list = queryset_list.filter(price__lte=price)
+
+    #Save search for logged in user
+    if request.user.is_authenticated:
+        searches = Search.objects.order_by('search_date')
+        if searches.count() == 10:
+            # deleted oldest search
+            searches[0].delete()
+        #Save current search
+        search = Search(user=request.user, keywords=keywords, bedrooms=bedrooms, max_price=price)
+        search.save()
 
     context = {
         'bedroom_options': bedroom_options,
