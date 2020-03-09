@@ -138,9 +138,59 @@
             <h6 class="text-success">{{ listing.staff }}</h6>
           </div>
         </div>
-        <button class="btn-primary btn-block btn-lg">Make An Enquiry</button>
+        <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#contactModal">Make An Enquiry</button>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalLabel">Make An Enquiry</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'contact' %}" method="POST">
+          {% csrf_token %}
+          {% if user.is_authenticated %}
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+          {% else %}
+            <input type="hidden" name="user_id" value="0">
+          {% endif %}
+          <input type="hidden" name="agent_email" value="{{ listing.staff.email }}">
+          <input type="hidden" name="listing_id" value="{{ listing.id }}">
+          <div class="form-group">
+            <label for="property_name" class="col-form-label">Property:</label>
+            <input type="text" name="listing" class="form-control" value="{{ listing.title }}" disabled>
+          </div>
+          <div class="form-group">
+            <label for="name" class="col-form-label">Name:</label>
+            <input type="text" name="name" class="form-control" {% if user.is_authenticated %} 
+            value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-form-label">Email:</label>
+            <input type="email" name="email" class="form-control"  {% if user.is_authenticated %} 
+            value="{{ user.email }}" {% endif %} required>
+          </div>
+          <div class="form-group">
+            <label for="phone" class="col-form-label">Phone:</label>
+            <input type="text" name="phone" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="message" class="col-form-label">Message:</label>
+            <textarea name="message" class="form-control"></textarea>
+          </div>
+          <hr>
+          <input type="submit" value="Send" class="btn btn-block btn-secondary">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
