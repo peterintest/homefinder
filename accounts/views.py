@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from listings.models import Search
 
 def register(request):
     if request.method == 'POST':
@@ -60,4 +61,10 @@ def logout(request):
         return redirect('index')
 
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    user_searches = Search.objects.order_by('-search_date').filter(user=request.user)
+
+    context = {
+        'searches': user_searches
+    }
+
+    return render(request, 'accounts/dashboard.html', context)
