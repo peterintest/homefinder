@@ -1,0 +1,8 @@
+[run]
+omit =
+  env/*,
+  *migrations/*,
+  *settings*,
+  *tests/*,
+
+
