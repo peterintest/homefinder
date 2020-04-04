@@ -1,0 +1,1 @@
+web: gunicorn homefinder.wsgi --log-file -
