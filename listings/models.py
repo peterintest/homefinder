@@ -36,3 +36,6 @@ class Search(models.Model):
     bedrooms = models.IntegerField(blank=True)
     max_price = models.IntegerField(blank=True)
     search_date = models.DateTimeField(default=datetime.now, blank=True)
+
+    class Meta: 
+        verbose_name_plural = "searches"
