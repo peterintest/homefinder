@@ -19,9 +19,17 @@ def index(request):
 
 def listing(request, listing_id):
     listing = get_object_or_404(Listing, pk=listing_id)
+    thumbnail_images = []
+    # collect the urls of listing images
+    for n in range(1, 7):
+        try:
+            thumbnail_images.append(getattr(listing, f'photo_{n}').url)
+        except ValueError:
+            continue
 
     context = {
-        'listing': listing
+        'listing': listing,
+        'thumbnail_images': thumbnail_images
     }
     return render(request, 'listings/listing.html', context)
 
