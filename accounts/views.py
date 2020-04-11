@@ -1,3 +1,4 @@
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
@@ -61,6 +62,8 @@ def logout(request):
         return redirect('index')
 
 def dashboard(request):
+    if not request.user.is_authenticated:
+        raise PermissionDenied
     user_searches = Search.objects.order_by('-search_date').filter(user=request.user)
 
     context = {
