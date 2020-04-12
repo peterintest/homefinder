@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from listings.models import Search
 
 def register(request):
+    context = {}
     if request.method == 'POST':
         first_name = request.POST['firstname']
         last_name = request.POST['lastname']
@@ -13,16 +14,21 @@ def register(request):
         password = request.POST['password']
         password2 = request.POST['password2']
 
+        context = {
+            'firstname': first_name,
+            'lastname':  last_name,
+            'username': username,
+            'email': email
+        }
+
         # check passwords
         if password == password2:
             # check username
             if User.objects.filter(username=username).exists():
                 messages.error(request, "Username is already taken")
-                return redirect('register')
             else:
                 if User.objects.filter(email=email).exists():
                     messages.error(request, "E-mail already registered")
-                    return redirect('register')
                 else:
                     # register user
                     user = User.objects.create_user(username=username,
@@ -35,9 +41,8 @@ def register(request):
                     return redirect('login')
         else:
             messages.error(request, 'Passwords do not match')
-            return redirect('register')
-    else:
-        return render(request, 'accounts/register.html')
+
+    return render(request, 'accounts/register.html', context)
 
 def login(request):
     username = ''
