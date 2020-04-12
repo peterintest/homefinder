@@ -40,6 +40,7 @@ def register(request):
         return render(request, 'accounts/register.html')
 
 def login(request):
+    username = ''
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -52,8 +53,8 @@ def login(request):
             return redirect('index')
         else:
             messages.error(request, 'Invalid credentials')
-            return redirect('login')
-    return render(request, 'accounts/login.html')
+
+    return render(request, 'accounts/login.html', {'username': username})
 
 def logout(request):
     if request.method == 'POST':
