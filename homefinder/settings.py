@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'staff.apps.StaffConfig',
     'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
+    'customers.apps.CustomersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
