@@ -36,8 +36,8 @@ def test_invalid_login(client, db):
         'username': 'username1',
         'password': 'password1'
     })
-    assert resp.status_code == 302
-    assert resp.url == urls.reverse('login')
+    assert resp.status_code == 200
+    assert b'Login' in resp.content
 
 
 def test_access_login_page(client, db):
@@ -78,8 +78,8 @@ def test_register_mismatching_passwords(client, db):
         'password': 'password1',
         'password2': 'password2'
     })
-    assert resp.status_code == 302
-    assert resp.url == urls.reverse('register')
+    assert resp.status_code == 200
+    assert b'Register' in resp.content
 
 
 def test_register_existing_email(client, db):
@@ -100,8 +100,8 @@ def test_register_existing_email(client, db):
         'password': 'password1',
         'password2': 'password1'
     })
-    assert resp.status_code == 302
-    assert resp.url == urls.reverse('register')
+    assert resp.status_code == 200
+    assert b'Register' in resp.content
 
 
 def test_register_existing_username(client, db):
@@ -122,8 +122,8 @@ def test_register_existing_username(client, db):
         'password': 'password1',
         'password2': 'password1'
     })
-    assert resp.status_code == 302
-    assert resp.url == urls.reverse('register')
+    assert resp.status_code == 200
+    assert b'Register' in resp.content
 
 
 def test_access_dashboard_page(client, db, authenticated_user):
