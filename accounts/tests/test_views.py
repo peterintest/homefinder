@@ -131,3 +131,9 @@ def test_access_dashboard_page(client, db, authenticated_user):
     resp = client.get(url)
     assert resp.status_code == 200
     assert b'Dashboard' in resp.content 
+
+def test_access_dashboard_page_unauthenticated(client, db):
+    url = urls.reverse('dashboard')
+    resp = client.get(url)
+    assert resp.status_code == 403
+    assert b'Forbidden' in resp.content 

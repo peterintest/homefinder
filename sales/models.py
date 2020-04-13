@@ -12,7 +12,7 @@ class Sale(models.Model):
     completion_date = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
-        return self.listing
+        return str(self.listing)
 
 class Purchase(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.DO_NOTHING)
@@ -22,4 +22,4 @@ class Purchase(models.Model):
     completion_date = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
-        return self.listing
+        return str(self.listing)

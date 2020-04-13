@@ -25,6 +25,14 @@ def test_listing_details(client, property_listing):
     assert resp.status_code == 200
 
 
+def test_listing_with_missing_thumbnail(client, db):
+    listing = mixer.blend('listings.Listing', photo_1 = None)
+    listing_id = listing.pk
+    url = urls.reverse('listing', kwargs={'listing_id': listing_id})
+    resp = client.get(url)
+    assert resp.status_code == 200
+
+
 def test_search_no_listings(client, property_listing):
     url = urls.reverse('search')
     resp = client.get(url)
@@ -71,7 +79,7 @@ def test_search_is_saved_for_authenicated_user(client, db, authenticated_user):
     assert Search.objects.count() == 1
 
 
-def test_last_10_searches_are_saved_for_authenicated_user(client, db, authenticated_user):
+def test_last_10_searches_are_saved_for_authenticated_user(client, db, authenticated_user):
     for n in range(20):
         mixer.blend('listings.Listing')
         url = urls.reverse('search')
