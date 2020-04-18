@@ -1,10 +1,8 @@
 import pytest
-from mixer.backend.django import mixer
+from .factories import ServiceFactory
 
 
-@pytest.mark.django_db
 def test___str__():
-    name = 'Independent mortgage brokerage'
-    service = mixer.blend('services.Service', name=name)
-    assert service.__str__() == name
-    assert str(service) == name
+    service = ServiceFactory.build()
+    assert service.__str__() == service.name
+    assert str(service) == service.name

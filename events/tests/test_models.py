@@ -1,10 +1,8 @@
 import pytest
-from mixer.backend.django import mixer
+from .factories import EventFactory
 
 
-@pytest.mark.django_db
 def test___str__():
-    title = 'Education Property & Development Conference'
-    event = mixer.blend('events.Event', title=title)
-    assert event.__str__() == title
-    assert str(event) == title
+    event = EventFactory.build()
+    assert event.__str__() == event.title
+    assert str(event) == event.title

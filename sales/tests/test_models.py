@@ -1,20 +1,21 @@
 import pytest
-from mixer.backend.django import mixer
+from .factories import SaleFactory, PurchaseFactory
 
 
 @pytest.mark.django_db
 def test_sale___str__():
     title = '33 Sesame street'
-    listing = mixer.blend('listings.Listing', title=title)
-    sale = mixer.blend('sales.Sale', listing=listing)
+    sale = SaleFactory.build(
+        listing__title = title
+    )
     assert sale.__str__() == title
     assert str(sale) == title
 
 
-@pytest.mark.django_db
-def test__purchase__str__():
+def test_purchase__str__():
     title = '33 Sesame street'
-    listing = mixer.blend('listings.Listing', title=title)
-    purchase = mixer.blend('sales.Purchase', listing=listing)
+    purchase = PurchaseFactory.build(
+        listing__title = title
+    )
     assert purchase.__str__() == title
     assert str(purchase) == title

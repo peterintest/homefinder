@@ -1,10 +1,8 @@
 import pytest
-from mixer.backend.django import mixer
+from .factories import ContactFactory
 
 
-@pytest.mark.django_db
 def test___str__():
-    name = 'David Jones'
-    contact = mixer.blend('contacts.Contact', name=name)
-    assert contact.__str__() == name
-    assert str(contact) == name
+    contact = ContactFactory.build()
+    assert contact.__str__() == contact.name
+    assert str(contact) == contact.name

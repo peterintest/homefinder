@@ -1,22 +1,13 @@
 from django import urls
-from mixer.backend.django import mixer
 from contacts.models import Contact
 from django.contrib.auth.models import User
 
 
-def test_login_and_logout(client, db):
-    # create user
-    user = User.objects.create_user(username='username1',
-                                    password='password1',
-                                    email='test@test.com',
-                                    first_name='David',
-                                    last_name='Jones')
-    user.save()
-    
+def test_login_and_logout(client, user):
     # login
     login_url = urls.reverse('login')
     resp = client.post(login_url, {
-        'username': 'username1',
+        'username': user.username,
         'password': 'password1'
     })
     assert resp.status_code == 302
@@ -82,15 +73,7 @@ def test_register_mismatching_passwords(client, db):
     assert b'Register' in resp.content
 
 
-def test_register_existing_email(client, db):
-    # create user
-    user = User.objects.create_user(username='username1',
-                                    password='password1',
-                                    email='email@test.com',
-                                    first_name='David',
-                                    last_name='Jones')
-    user.save()
-    # register user
+def test_register_existing_email(client, user):
     url = urls.reverse('register')
     resp = client.post(url, {
         'firstname': 'David',
@@ -104,15 +87,7 @@ def test_register_existing_email(client, db):
     assert b'Register' in resp.content
 
 
-def test_register_existing_username(client, db):
-    # create user
-    user = User.objects.create_user(username='username1',
-                                    password='password1',
-                                    email='email@test.com',
-                                    first_name='David',
-                                    last_name='Jones')
-    user.save()
-    # register user
+def test_register_existing_username(client, user):
     url = urls.reverse('register')
     resp = client.post(url, {
         'firstname': 'David',
