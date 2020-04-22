@@ -5,9 +5,9 @@ from listings.models import Listing
 from staff.models import Staff
 
 class Sale(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.DO_NOTHING)
-    listing = models.ForeignKey(Listing, on_delete=models.DO_NOTHING)
-    agent = models.ForeignKey(Staff, on_delete=models.DO_NOTHING)
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
+    listing = models.ForeignKey(Listing, on_delete=models.SET_NULL, null=True)
+    agent = models.ForeignKey(Staff, on_delete=models.SET_NULL, null=True)
     amount = models.IntegerField()
     completion_date = models.DateTimeField(default=datetime.now, blank=True)
 
@@ -15,9 +15,9 @@ class Sale(models.Model):
         return str(self.listing)
 
 class Purchase(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.DO_NOTHING)
-    listing = models.ForeignKey(Listing, on_delete=models.DO_NOTHING)
-    agent = models.ForeignKey(Staff, on_delete=models.DO_NOTHING)
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
+    listing = models.ForeignKey(Listing, on_delete=models.SET_NULL, null=True)
+    agent = models.ForeignKey(Staff, on_delete=models.SET_NULL, null=True)
     amount = models.IntegerField()
     completion_date = models.DateTimeField(default=datetime.now, blank=True)
 

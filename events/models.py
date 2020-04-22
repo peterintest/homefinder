@@ -7,7 +7,7 @@ class Event(models.Model):
     description = models.TextField(blank=True)
     location = models.CharField(max_length=100)
     date = models.DateTimeField(default=datetime.now, blank=True)
-    organiser = models.ForeignKey(Staff, on_delete=models.DO_NOTHING)    
+    organiser = models.ForeignKey(Staff, on_delete=models.SET_NULL, null=True)    
 
     def __str__(self):
         return self.title

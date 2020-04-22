@@ -5,7 +5,7 @@ from staff.models import Staff
 
 
 class Listing(models.Model):
-    staff = models.ForeignKey(Staff, on_delete=models.DO_NOTHING)
+    staff = models.ForeignKey(Staff, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
@@ -31,7 +31,7 @@ class Listing(models.Model):
         return self.title
 
 class Search(models.Model):
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     keywords = models.CharField(max_length=200, blank=True)
     bedrooms = models.IntegerField(blank=True)
     max_price = models.IntegerField(blank=True)
