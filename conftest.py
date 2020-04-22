@@ -6,7 +6,7 @@ import pytest
 TEST_USERNAME = 'username1'
 TEST_PASSWORD = 'password1'
 
-@pytest.fixture()
+@pytest.fixture
 def user(db):
     """Add a test user to the database."""
     _user = UserFactory.create(
@@ -23,7 +23,7 @@ def authenticated_user(user, client):
     return user
 
 
-@pytest.fixture()
+@pytest.fixture
 def listing(db):
     """Add a test listing to the database."""
     return ListingFactory.create()
