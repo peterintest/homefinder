@@ -1,0 +1,246 @@
+[
+    {
+        "model": "listings.listing",
+        "pk": 1,
+        "fields": {
+            "staff": 1,
+            "title": "Chieftain Way",
+            "address": "Chieftain Way",
+            "city": "Cambridge",
+            "county": "Cambridgeshire",
+            "postcode": "CB4",
+            "description": "A well presented three bedroom home offering versatile accommodation with an enclosed garden and the added benefit of a garage. Situated close to Cambridge North Train Station, Cambridge Science Park and Business Park.",
+            "price": 425000,
+            "bedrooms": 3,
+            "bathrooms": 1,
+            "livingrooms": 1,
+            "garage": 1,
+            "photo_main": "test_data/home1/7fc605298a2b00fb4d82c5ad175c9fab30e19e56.jpg",
+            "photo_1": "",
+            "photo_2": "",
+            "photo_3": "",
+            "photo_4": "",
+            "photo_5": "",
+            "photo_6": "",
+            "is_published": true,
+            "creation_date": "2020-04-05T22:03:00Z"
+        }
+    },
+    {
+        "model": "listings.listing",
+        "pk": 2,
+        "fields": {
+            "staff": 1,
+            "title": "Motcomb Street",
+            "address": "Motcomb Street",
+            "city": "London",
+            "county": "Westminster",
+            "postcode": "SW1X",
+            "description": "A generously proportioned two bedroom apartment, superbly located within this wide, Grade II listed building on Motcomb Street in the heart of Belgravia.\r\n\r\nThe apartment measures approximately 1214 sq ft and features a spacious 27' reception room with three south-facing windows overlooking Motcomb Street, a separate kitchen, two double bedrooms (one en-suite), a guest bathroom and cloakroom",
+            "price": 1950000,
+            "bedrooms": 2,
+            "bathrooms": 2,
+            "livingrooms": 1,
+            "garage": 0,
+            "photo_main": "test_data/home2/3fed561099afee07b1515a301054c6977c852655.jpg",
+            "photo_1": "test_data/home2/f67e8747db8a1725f8625856ef94dd3a7f619e16.jpg",
+            "photo_2": "test_data/home2/d37d7f4a823bdac42b0d9d96a7760b7566dfd013.jpg",
+            "photo_3": "test_data/home2/caa98d219aa817e6162ee0f2d3117097923f909b.jpg",
+            "photo_4": "test_data/home2/b02a58c18d3bbb8e99e9f546e22c0be33799a77c.jpg",
+            "photo_5": "test_data/home2/6e4e71719826df7b927acfa4dd94c947f2ab7b41.jpg",
+            "photo_6": "test_data/home2/3f90bc1352b9890dbdba6d6f96fd6465f7af1afa.jpg",
+            "is_published": true,
+            "creation_date": "2020-04-05T22:09:04Z"
+        }
+    },
+    {
+        "model": "listings.listing",
+        "pk": 3,
+        "fields": {
+            "staff": 1,
+            "title": "Marley Close",
+            "address": "Marley Close",
+            "city": "Oxford",
+            "county": "Oxfordshire",
+            "postcode": "OX2",
+            "description": "A modern three bedroom semi-detached house situated in a private road close to the West of the city.",
+            "price": 379000,
+            "bedrooms": 3,
+            "bathrooms": 2,
+            "livingrooms": 1,
+            "garage": 0,
+            "photo_main": "test_data/home3/4759f49f2711f5dc2489543fd451fd6820c6a0c8.jpg",
+            "photo_1": "test_data/home3/0c95d06ca03afa78899657646e3e0664c0672460.jpg",
+            "photo_2": "test_data/home3/102e14f4c784369f5401eee63de017c45e07ad23.jpg",
+            "photo_3": "test_data/home3/015050360ed13f85b264b3194824ee009d697375.jpg",
+            "photo_4": "test_data/home3/a2063c26ce61014a272284ab833c00d314d5a38f.jpg",
+            "photo_5": "test_data/home3/eae555d7f3cdc437197808c348c55addaaaae2d7.jpg",
+            "photo_6": "test_data/home3/89fe2ba2f96a29255af19580240011a17d671047.jpg",
+            "is_published": true,
+            "creation_date": "2020-04-05T22:20:04Z"
+        }
+    },
+    {
+        "model": "listings.listing",
+        "pk": 4,
+        "fields": {
+            "staff": 1,
+            "title": "Lucerne Close",
+            "address": "Lucerne Close",
+            "city": "Cambridge",
+            "county": "Cambridgeshire",
+            "postcode": "CB1",
+            "description": "A spacious three bedroom property in Cherry Hinton offering access to local amenities, commuter roads and Addenbrookes Hospital. The property comprises of a good sized living room, and a separate dining room with laminate flooring and French doors out to a timber decked patio area and rear garden. The kitchen has a built-in cooker, fridge and space for a washing machine. Upstairs there are three bedrooms; one double with fitted wardrobes and two further singles. A family bathroom with a shower over the bath is also upstairs. Front and rear gardens, as well as a single garage, adds further appeal.",
+            "price": 375000,
+            "bedrooms": 3,
+            "bathrooms": 1,
+            "livingrooms": 2,
+            "garage": 1,
+            "photo_main": "test_data/home4/3164d038d6e6013df8fd762253a8744ba787367d.jpg",
+            "photo_1": "test_data/home4/f41255cd3120df267fd23f94dc08d24cc726e893.jpg",
+            "photo_2": "test_data/home4/b4e66e1fd013e4e8fa5d6eddb066dc29ff706d4b.jpg",
+            "photo_3": "test_data/home4/a231bd6f401d63dd8aa7a43e5112d81172b0257a.jpg",
+            "photo_4": "test_data/home4/6fbe3ef12808701e1955dce87f2e85847a249e33.jpg",
+            "photo_5": "test_data/home4/4a99e5b0ce325f4bc56e7cc94ecb9f06c3759259.jpg",
+            "photo_6": "test_data/home4/2c6cdee4332898708daf6d7a07bd4ff16ecc56e7.jpg",
+            "is_published": true,
+            "creation_date": "2020-04-09T21:01:28Z"
+        }
+    },
+    {
+        "model": "listings.listing",
+        "pk": 5,
+        "fields": {
+            "staff": 1,
+            "title": "Carlisle Avenue",
+            "address": "Carlisle Avenue",
+            "city": "St Albans",
+            "county": "Hertfordshire",
+            "postcode": "AL3",
+            "description": "An individual contemporary style 4 bedroom semi detached town house with internal floor area of 2199 sq ft, ideally located in this tree lined Avenue in the sought after central conservation area of St Albans, convenient for access to the city centre, mainline station into central London (St Pancras International) and excellent local schools.\r\n\r\nGenerously proportioned, well presented versatile accommodation with the benefit of off street parking for 2 cars to the side accessed via an electric gate. To the front, side and rear are very well kept gardens with al fresco eating areas, a hydro massage hot tub, well screened by mature planting and trees. Chain free.",
+            "price": 1395000,
+            "bedrooms": 4,
+            "bathrooms": 4,
+            "livingrooms": 2,
+            "garage": 0,
+            "photo_main": "test_data/home5/85616404f6d315495ef9b580cc28da91d4766176.jpg",
+            "photo_1": "test_data/home5/f35908931437f4e00ef5b97ff7638e2552f431a5.jpg",
+            "photo_2": "test_data/home5/ec0e78f8b8ce5962901f0424f4c40320b2e23dd3.jpg",
+            "photo_3": "test_data/home5/d4d08895d8531b9236507f1d0c3f81c2ace8e762.jpg",
+            "photo_4": "test_data/home5/be93b7b1913c0e238b08de61df2d6d05d9551304.jpg",
+            "photo_5": "test_data/home5/1408ab3883be855656efb3d77a9a1d4dca675e3b.jpg",
+            "photo_6": "test_data/home5/27c2b6fa2f11f33a905f800e5d5c93d731687c12.jpg",
+            "is_published": true,
+            "creation_date": "2020-04-09T22:14:08Z"
+        }
+    },
+    {
+        "model": "staff.staff",
+        "pk": 1,
+        "fields": {
+            "name": "James Smith",
+            "job_title": "Estate Agent",
+            "phone": "012345678912",
+            "email": "james@test.com",
+            "photo": "photos/2020/04/05/latest.jpg",
+            "start_date": "2020-04-05T22:01:02Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 1,
+        "fields": {
+            "name": "David Smith",
+            "address": "Hills Road",
+            "city": "Cambridge",
+            "county": "Cambridgeshire",
+            "postcode": "CB2",
+            "email": "customer@test.com",
+            "phone": "012345678901"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 2,
+        "fields": {
+            "name": "James Smith",
+            "address": "Chieftain Way",
+            "city": "Cambridge",
+            "county": "Cambridgeshire",
+            "postcode": "CB4",
+            "email": "customer@test.com",
+            "phone": "012345678901"
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 1,
+        "fields": {
+            "title": "Property & Development Conference",
+            "description": "Popular property conference",
+            "location": "London",
+            "date": "2020-04-10T09:00:00Z",
+            "organiser": 1
+        }
+    },
+    {
+        "model": "services.service",
+        "pk": 1,
+        "fields": {
+            "name": "Independent mortgage brokerage"
+        }
+    },
+    {
+        "model": "contacts.contact",
+        "pk": 1,
+        "fields": {
+            "listing": "Chieftain Way",
+            "listing_id": 1,
+            "name": "Jessica Smith",
+            "email": "jess@test.com",
+            "phone": "012345678912",
+            "message": "Hello, I'm interested in arranging a viewing",
+            "contact_date": "2020-04-01T12:00:00Z"
+        }
+    },
+    {
+        "model": "sales.purchase",
+        "pk": 1,
+        "fields": {
+            "customer": 1,
+            "listing": 1,
+            "agent": 1,
+            "amount": 500000,
+            "completion_date": "2020-04-01T12:00:00Z"
+        }
+    },
+    {
+        "model": "sales.sale",
+        "pk": 1,
+        "fields": {
+            "customer": 2,
+            "listing": 1,
+            "agent": 1,
+            "amount": 500000,
+            "completion_date": "2020-04-01T12:00:00Z"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+          "password": "pbkdf2_sha256$180000$KXEM5tdn1Cnq$prg9DH/ODcdHv5Fx59KT8w/dFzblUvhg6H+9trsgMxE=",
+          "last_login": "2020-04-02T20:53:05.347Z",
+          "is_superuser": true,
+          "username": "oliver",
+          "first_name": "Oliver",
+          "last_name": "Smith",
+          "email": "test@test.com",
+          "is_staff": true,
+          "is_active": true,
+          "date_joined": "2020-04-01T22:00:34.815Z",
+          "groups": [],
+          "user_permissions": []
+        }
+      }
+    ]
