@@ -1,6 +1,7 @@
 from .factories import StaffFactory
 import pytest
 
+pytestmark = pytest.mark.unittest
 
 def test___str__():
     staff = StaffFactory.build()

@@ -1,6 +1,7 @@
 import pytest
 from .factories import ContactFactory
 
+pytestmark = pytest.mark.unittest
 
 def test___str__():
     contact = ContactFactory.build()

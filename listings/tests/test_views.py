@@ -4,6 +4,7 @@ from listings.views import index, listing, search, Search
 from .factories import ListingFactory
 import pytest
 
+pytestmark = pytest.mark.unittest
 
 def test_listings(client, listing):
     url = urls.reverse('listings')

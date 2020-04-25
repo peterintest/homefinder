@@ -1,6 +1,7 @@
 from django import urls
 import pytest
 
+pytestmark = pytest.mark.unittest
 
 def test_home_page(client, db):
     url = urls.reverse('index')

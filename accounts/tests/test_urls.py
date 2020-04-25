@@ -1,5 +1,7 @@
 from django import urls
+import pytest
 
+pytestmark = pytest.mark.unittest
 
 def test_register_url():
     url = urls.reverse('register')

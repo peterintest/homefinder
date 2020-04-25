@@ -1,6 +1,8 @@
 from django import urls
 from contacts.models import Contact
+import pytest
 
+pytestmark = pytest.mark.unittest
 
 def test_enquiry(client, listing):
     url = urls.reverse('contact')

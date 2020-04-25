@@ -1,6 +1,7 @@
 import pytest
 from .factories import SaleFactory, PurchaseFactory
 
+pytestmark = pytest.mark.unittest
 
 @pytest.mark.django_db
 def test_sale___str__():

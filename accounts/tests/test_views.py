@@ -1,7 +1,9 @@
 from django import urls
 from contacts.models import Contact
 from django.contrib.auth.models import User
+import pytest
 
+pytestmark = pytest.mark.unittest
 
 def test_login_and_logout(client, user):
     # login

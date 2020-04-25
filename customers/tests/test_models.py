@@ -1,6 +1,7 @@
 import pytest
 from .factories import CustomerFactory
 
+pytestmark = pytest.mark.unittest
 
 def test___str__():
     customer = CustomerFactory.build()
