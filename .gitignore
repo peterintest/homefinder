@@ -3,10 +3,13 @@
 *.pot
 *.pyc
 *.DS_Store
+*.coverage
+*.vscode
 __pycache__/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-/media
+/htmlcov
+acceptance_tests/htmlcov/
 env
 /static
