@@ -10,7 +10,7 @@ class PurchaseFactory(factory.django.DjangoModelFactory):
     listing = factory.SubFactory('listings.tests.factories.ListingFactory')
     agent = factory.SubFactory('staff.tests.factories.StaffFactory')
     amount = 500000
-    completion_date = timezone.now
+    completion_date = timezone.now()
 
 
 class SaleFactory(factory.django.DjangoModelFactory):
@@ -21,4 +21,4 @@ class SaleFactory(factory.django.DjangoModelFactory):
     listing = factory.SubFactory('listings.tests.factories.ListingFactory')
     agent = factory.SubFactory('staff.tests.factories.StaffFactory')
     amount = 500000
-    completion_date = timezone.now
+    completion_date = timezone.now()

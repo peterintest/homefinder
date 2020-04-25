@@ -10,5 +10,5 @@ class EventFactory(factory.django.DjangoModelFactory):
     title = 'Education Property & Development Conference'
     description = 'Popular property conference'
     location = 'London conference centre'
-    date = timezone.now
+    date = timezone.now()
     organiser = factory.SubFactory('staff.tests.factories.StaffFactory')

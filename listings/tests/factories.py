@@ -26,4 +26,4 @@ class ListingFactory(factory.django.DjangoModelFactory):
     photo_5 = factory.django.ImageField()
     photo_6 = factory.django.ImageField()
     is_published = True
-    creation_date = timezone.now
+    creation_date = timezone.now()

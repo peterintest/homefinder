@@ -11,4 +11,4 @@ class StaffFactory(factory.django.DjangoModelFactory):
     phone = '01234567891'
     email = 'agent@test.com'
     photo = factory.django.ImageField()
-    start_date = timezone.now
+    start_date = timezone.now()
