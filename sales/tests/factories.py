@@ -1,5 +1,5 @@
 import factory
-from datetime import datetime
+from django.utils import timezone
 from sales.models import Purchase, Sale
 
 class PurchaseFactory(factory.django.DjangoModelFactory):
@@ -10,7 +10,7 @@ class PurchaseFactory(factory.django.DjangoModelFactory):
     listing = factory.SubFactory('listings.tests.factories.ListingFactory')
     agent = factory.SubFactory('staff.tests.factories.StaffFactory')
     amount = 500000
-    completion_date = factory.LazyFunction(datetime.now)
+    completion_date = timezone.now
 
 
 class SaleFactory(factory.django.DjangoModelFactory):
@@ -21,4 +21,4 @@ class SaleFactory(factory.django.DjangoModelFactory):
     listing = factory.SubFactory('listings.tests.factories.ListingFactory')
     agent = factory.SubFactory('staff.tests.factories.StaffFactory')
     amount = 500000
-    completion_date = factory.LazyFunction(datetime.now)
+    completion_date = timezone.now

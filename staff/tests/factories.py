@@ -1,5 +1,5 @@
 import factory
-from datetime import datetime
+from django.utils import timezone
 from staff.models import Staff
 
 class StaffFactory(factory.django.DjangoModelFactory):
@@ -11,4 +11,4 @@ class StaffFactory(factory.django.DjangoModelFactory):
     phone = '01234567891'
     email = 'agent@test.com'
     photo = factory.django.ImageField()
-    start_date = factory.LazyFunction(datetime.now)
+    start_date = timezone.now

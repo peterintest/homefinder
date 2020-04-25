@@ -1,5 +1,4 @@
 import factory
-from datetime import datetime
 from services.models import Service
 
 

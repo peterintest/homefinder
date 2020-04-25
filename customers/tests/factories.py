@@ -1,5 +1,4 @@
 import factory
-from datetime import datetime
 from customers.models import Customer
 
 class CustomerFactory(factory.django.DjangoModelFactory):

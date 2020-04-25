@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import datetime
+from django.utils import timezone
 from staff.models import Staff
 
 
@@ -25,7 +25,7 @@ class Listing(models.Model):
     photo_5 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     photo_6 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     is_published = models.BooleanField(default=True)
-    creation_date = models.DateTimeField(default=datetime.now, blank=True)
+    creation_date = models.DateTimeField(default=timezone.now, blank=True)
  
     def __str__(self):
         return self.title
@@ -35,7 +35,7 @@ class Search(models.Model):
     keywords = models.CharField(max_length=200, blank=True)
     bedrooms = models.IntegerField(blank=True)
     max_price = models.IntegerField(blank=True)
-    search_date = models.DateTimeField(default=datetime.now, blank=True)
+    search_date = models.DateTimeField(default=timezone.now, blank=True)
 
     class Meta: 
         verbose_name_plural = "searches"

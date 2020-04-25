@@ -1,5 +1,5 @@
 import factory
-from datetime import datetime
+from django.utils import timezone
 from contacts.models import Contact
 
 class ContactFactory(factory.django.DjangoModelFactory):
@@ -12,4 +12,4 @@ class ContactFactory(factory.django.DjangoModelFactory):
     email = 'test@example.com'
     phone = '012345678912'
     message = 'This is a test message'
-    contact_date = datetime.now()
+    contact_date = timezone.now

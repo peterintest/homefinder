@@ -1,5 +1,5 @@
 import factory
-from datetime import datetime
+from django.utils import timezone
 from listings.models import Listing
 
 class ListingFactory(factory.django.DjangoModelFactory):
@@ -26,4 +26,4 @@ class ListingFactory(factory.django.DjangoModelFactory):
     photo_5 = factory.django.ImageField()
     photo_6 = factory.django.ImageField()
     is_published = True
-    creation_date = factory.LazyFunction(datetime.now)
+    creation_date = timezone.now

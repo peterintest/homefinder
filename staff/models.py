@@ -1,6 +1,5 @@
 from django.db import models
-
-from datetime import datetime
+from django.utils import timezone
 
 class Staff(models.Model):
     name = models.CharField(max_length=200)
@@ -8,7 +7,7 @@ class Staff(models.Model):
     phone = models.CharField(max_length=20)
     email = models.CharField(max_length=50)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
-    start_date = models.DateTimeField(default=datetime.now, blank=True)
+    start_date = models.DateTimeField(default=timezone.now, blank=True)
     
     class Meta: 
         verbose_name_plural = "staff"
