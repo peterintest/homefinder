@@ -1,4 +1,4 @@
-@cms
+@ims
 Feature: Manage sales
   As a admin user,
   I want to login to the CMS,

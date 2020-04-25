@@ -1,4 +1,4 @@
-@cms
+@ims
 Feature: Manage purchases
   As a admin user,
   I want to login to the CMS,

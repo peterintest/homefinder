@@ -1,4 +1,3 @@
-
 @cms
 Feature: Manage property listings
   As a admin user,
