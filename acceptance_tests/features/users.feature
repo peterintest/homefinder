@@ -7,7 +7,7 @@ Feature: Manage users
   Background:
     Given a admin user is logged into the IMS
 
-  Scenario: Add new users
+  Scenario: Add new user
     When I select add user
     And I see the "Add user" page
     And I add a user with the username "david"
