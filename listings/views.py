@@ -34,7 +34,7 @@ def listing(request, listing_id):
     return render(request, 'listings/listing.html', context)
 
 def search(request):
-    queryset_list = Listing.objects.all()
+    queryset_list = Listing.objects.all().filter(is_published=True)
 
     #Keywords
     keywords = ''
